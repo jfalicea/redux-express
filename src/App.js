@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import NavBar from './Component/NavBar'
+import Main from './Component/Main'
+import FrozenDept from './Component/FrozenDept'
+import MeatDept from './Component/MeatDept'
+import DairyDept from './Component/DairyDept'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(props){
+  return(
+    <Router>
+      <div className="App">
+        <Route path="/" component={NavBar} />
+        <Route exact path="/" component={Main} />
+        <Route exact path="/frozen-dept" component={FrozenDept} />
+        <Route exact path="/meat-dept" component={MeatDept} />
+        <Route exact path="/dairy-dept" component={DairyDept} />
+      </div>
+    </Router>
+  )
 }
-
 export default App;
